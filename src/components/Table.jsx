@@ -8,16 +8,15 @@ export default function BatteryTable({ data }) {
   const rows = data && data.length ? data :   [];
 
   const setStatus = (battery) => {
-
-    if(battery.voltage < 220 || battery.BatteryHealth < 40){
-        return "🔴 Critical"
-    }else if(battery.voltage >=230 && battery.BatteryHealth < 50){
-        return "🟡 Warning"
-    }else{
-        return "🟢 Normal"
+    if (battery.voltage < 220 || battery.batteryHealth < 40) {
+      return "🔴 Critical";
+    } else if (battery.voltage < 230 || battery.batteryHealth < 50) {
+      return "🟡 Warning";
+    } else {
+      return "🟢 Normal";
     }
-
   }
+  // 213 42 20 
    
   return (
     <div className="battery-table-container">
@@ -32,24 +31,19 @@ export default function BatteryTable({ data }) {
               <th scope="col">Charge (%)</th>
               <th scope="col">Current (A)</th>
               <th scope="col">Status </th>
+              <th scope="col">Reports at </th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((r, i) => (
+            {rows.sort((a,b)=>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((r, i) => (
               <tr key={i}>
                 <td className="bt-name">{r.name}</td>
                 <td className="bt-voltage">{(r.voltage)}</td>
-                <td className="bt-voltage">{(r.BatteryHealth)}</td>
+                <td className="bt-voltage">{(r.batteryHealth)}%</td>
                 <td className="bt-voltage">{(r.current)}</td>
                 <td className="bt-voltage">{setStatus(r)}</td>
-                
-                <td className="bt-charge">
-                  <div className="charge-cell">
-                    <div className="charge-bar" />
-                    <span className="charge-label">{r.charge}%</span>
-                  </div>
-                </td>
-                <td className="bt-current">{(r.current)}</td>
+                <td className="bt-voltage">{r.createdAt}</td>
+
               </tr>
             ))}
           </tbody>

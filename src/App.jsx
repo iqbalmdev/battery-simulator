@@ -9,18 +9,14 @@ function App() {
 
   const {battery,fetchBatteries} = useFetchBatteries();
 
-  useEffect(()=>{
-    let interval ;
-    if(battery.length===10){
-      clearInterval(interval);
-      return;
-    }else{
-      interval = setInterval(() => {
+  useEffect(() => {
+   
+    const interval = setInterval(() => {
       fetchBatteries();
-    }, 2000);
-    }
+    }, 2000); 
   
-  },[battery]) 
+    return () => clearInterval(interval);
+  }, []);
   console.log("battery data in app.jsx",battery); 
   return (
     <div className='app'>
