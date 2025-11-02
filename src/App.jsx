@@ -21,7 +21,7 @@ function App() {
   return (
     <div className='app'>
       
-      <h1>Batteru Details</h1>
+      <h1>Battery Details</h1>
 
       <BatteryTable data={battery} />
      

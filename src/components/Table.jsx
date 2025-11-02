@@ -45,7 +45,7 @@ export default function BatteryTable({ data }) {
                 <td className="bt-voltage">{(r.batteryHealth)}%</td>
                 <td className="bt-voltage">{(r.current)}</td>
                 <td className="bt-voltage">{setStatus(r)}</td>
-                <td className="bt-voltage">{r.createdAt}</td>
+                <td className="bt-voltage">{new Date(r.createdAt).toLocaleString()}</td>
 
               </tr>
             ))}
