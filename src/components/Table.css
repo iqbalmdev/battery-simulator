@@ -1,0 +1,101 @@
+.battery-table-container {
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    max-width: 900px;
+    margin: 16px auto;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(20, 20, 30, 0.06);
+    background: #ffffff;
+}
+
+.bt-title {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.bt-table-wrap {
+    overflow-x: auto;
+}
+
+.bt-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+    /* allow horizontal scroll on small screens */
+}
+
+.bt-table thead th {
+    text-align: left;
+    font-size: 13px;
+    padding: 10px 12px;
+    background: linear-gradient(0deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.02));
+    color: #0f172a;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.bt-table tbody td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+    vertical-align: middle;
+}
+
+.bt-table tbody tr:hover {
+    background: rgba(2, 6, 23, 0.02);
+}
+
+.bt-name {
+    font-weight: 600;
+    color: #071133;
+}
+
+.bt-voltage,
+.bt-current {
+    width: 120px;
+}
+
+.bt-charge {
+    width: 200px;
+}
+
+.charge-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.charge-bar {
+    height: 10px;
+    flex: 1 1 auto;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #d1fae5, #bbf7d0);
+    /* subtle green gradient for charged portion */
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    min-width: 20px;
+}
+
+.charge-label {
+    font-size: 13px;
+    min-width: 40px;
+    text-align: right;
+    color: #0f172a;
+}
+
+/* small screens tweaks */
+@media (max-width: 560px) {
+
+    .bt-table thead th,
+    .bt-table tbody td {
+        padding: 8px;
+        font-size: 13px
+    }
+
+    .battery-table-container {
+        padding: 12px
+    }
+}
