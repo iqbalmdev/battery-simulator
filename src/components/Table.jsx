@@ -26,6 +26,8 @@ export default function BatteryTable({ data }) {
         <table className="bt-table" role="table" aria-label="Battery status table">
           <thead>
             <tr>
+
+              <th scope="col">Sn.no</th>
               <th scope="col">Battery Name</th>
               <th scope="col">Voltage (V)</th>
               <th scope="col">Charge (%)</th>
@@ -37,6 +39,7 @@ export default function BatteryTable({ data }) {
           <tbody>
             {rows.sort((a,b)=>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((r, i) => (
               <tr key={i}>
+                <td className="bt-name">{i+ 1}</td>
                 <td className="bt-name">{r.name}</td>
                 <td className="bt-voltage">{(r.voltage)}</td>
                 <td className="bt-voltage">{(r.batteryHealth)}%</td>
